@@ -1,5 +1,5 @@
 const Index = () => {
-    return <div><iframe name="ApiDocs" src="https://xynbio-data.apifox.cn"></iframe></div>
+    return <div><h1>Redirecting...</h1><meta httpEquiv="refresh" content="0; url='https://xynbio-data.apifox.cn'" /></div>
 }
 
 export default Index
