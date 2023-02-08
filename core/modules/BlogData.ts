@@ -1,4 +1,4 @@
-export interface ContentData {\
+export interface ContentData {
   code: number
   data: {
     link: string
