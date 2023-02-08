@@ -1,12 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-
-type Data = {
-  text: string
-}
+import { HelloData } from '@/core/modules/HelloData'
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<HelloData>
 ) {
   res.status(200).json({ text: 'Hello World!' })
 }

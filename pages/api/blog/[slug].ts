@@ -1,33 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { useRouter } from 'next/router'
-
-type Data = {
-    link: string
-    metadata: {
-      title: string
-      subtitle: string
-      date: string
-      author: string
-      keyword: string
-      slug: string
-    }
-    content: any
-    activity: {
-        comments: number
-        likes: number
-        shares: number
-    }
-    comments: {
-        name: string
-        github: string
-        comment: string
-        date: string
-    }[]
-  }
+import { ContentData } from '@/core/modules/BlogData'
 
 export default function handler (
     req: NextApiRequest,
-    res: NextApiResponse<Data>
+    res: NextApiResponse<ContentData>
 ){
     const slug = req.query.slug as string
 
@@ -61,5 +37,5 @@ export default function handler (
         }
     ]
 
-    res.status(200).json({ link: link, metadata: metadata, content: content, activity: activity, comments: comments })
+    res.status(200).json({ code: 200, data: { link: link, metadata: metadata, content: content, activity: activity, comments: comments } })
 }

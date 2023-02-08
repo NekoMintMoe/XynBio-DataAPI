@@ -1,20 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-
-type Data = {
-  link: string
-  metadata: {
-    title: string
-    subtitle: string
-    date: string
-    author: string
-    keyword: string
-    slug: string
-  }
-}[]
+import { ListData } from '@/core/modules/BlogData'
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<ListData>
 ) {
 
   const metadata = {
@@ -28,5 +17,5 @@ export default function handler(
   const link = 'https://github.com'
   const DataArray = [{ link: link, metadata: metadata }, { link: link, metadata: metadata }]
 
-  res.status(200).json(DataArray)
+  res.status(200).json({ code: 200, data: DataArray })
 }
