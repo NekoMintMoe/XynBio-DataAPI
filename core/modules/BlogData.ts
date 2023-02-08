@@ -1,3 +1,18 @@
+export interface ListData {
+  code: number
+  data: {
+    link: string
+    metadata: {
+      title: string
+      subtitle: string
+      date: string
+      author: string
+      keyword: string
+      slug: string
+    }
+  }[]
+}
+
 export interface ContentData {
   code: number
   data: {
@@ -16,26 +31,19 @@ export interface ContentData {
         likes: number
         shares: number
     }
-    comments: {
-        name: string
-        github: string
-        comment: string
-        date: string
-    }[]
   }
 }
 
-export interface ListData {
+export interface CommentData {
   code: number
   data: {
     link: string
     metadata: {
       title: string
-      subtitle: string
+      user: string
+      github: string
       date: string
-      author: string
-      keyword: string
-      slug: string
     }
+    content: string
   }[]
 }

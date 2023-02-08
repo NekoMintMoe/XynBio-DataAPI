@@ -22,20 +22,7 @@ export default function handler (
         likes: 0,
         shares: 0
     }
-    const comments = [
-        {
-            name: 'John Doe',
-            github: 'https://github.com',
-            comment: 'This is a comment',
-            date: '2021-01-01'
-        },
-        {
-            name: 'Caffee Dog',
-            github: 'https://github.com',
-            comment: 'This is a comment',
-            date: '2021-01-02'
-        }
-    ]
+    const DataArray = { code: 200, data: { link: link, metadata: metadata, content: content, activity: activity } }
 
-    res.status(200).json({ code: 200, data: { link: link, metadata: metadata, content: content, activity: activity, comments: comments } })
+    res.status(200).json(DataArray)
 }
