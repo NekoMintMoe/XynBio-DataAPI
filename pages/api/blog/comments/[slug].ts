@@ -1,9 +1,5 @@
 import type { NextApiRequest } from 'next'
 
-export const config = {
-    runtime: 'edge',
-}
-
 export default async function handler (req: NextApiRequest){
 
     const { searchParams } = new URL(req.url??'')

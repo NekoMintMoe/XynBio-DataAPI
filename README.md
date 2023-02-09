@@ -7,8 +7,7 @@
 
 ### API Document
 
-- Open the DataAPI URL
-- Auto Redirect to Doc
+- Goto [ApiFox](https://xynbio-data.apifox.cn)
 
 ### Start this project
 
