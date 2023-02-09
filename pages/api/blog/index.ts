@@ -1,5 +1,9 @@
 import type { NextApiRequest } from 'next'
 
+export const config = {
+  runtime: 'edge',
+}
+
 export default async function handler(req: NextApiRequest) {
 
   const metadata = {

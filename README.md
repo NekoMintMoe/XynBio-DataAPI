@@ -5,6 +5,11 @@
 - EdgeAPI
 - CloudFlare
 
+### API Document
+
+- Open the DataAPI URL
+- Auto Redirect to Doc
+
 ### Start this project
 
 ```
