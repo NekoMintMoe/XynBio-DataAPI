@@ -1,11 +1,9 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
-import { ContentData } from '@/core/modules/BlogData'
+import type { NextApiRequest } from 'next'
+  
+export default async function handler (req: NextApiRequest){
 
-export default function handler (
-    req: NextApiRequest,
-    res: NextApiResponse<ContentData>
-){
-    const slug = req.query.slug as string
+    const { searchParams } = new URL(req.url??'')
+    const slug = searchParams.get('slug') as string
 
     const metadata = {
         title: 'Hello World',
@@ -23,6 +21,18 @@ export default function handler (
         shares: 0
     }
     const DataArray = { code: 200, data: { link: link, metadata: metadata, content: content, activity: activity } }
+    const data = {
+        code: 200,
+        data: DataArray
+    }
 
-    res.status(200).json(DataArray)
+    return new Response(
+        JSON.stringify(data),
+        {
+            status: 200,
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        }
+    )
 }

@@ -1,11 +1,9 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
-import { CommentData } from '@/core/modules/BlogData'
+import type { NextApiRequest } from 'next'
 
-export default function handler (
-    req: NextApiRequest,
-    res: NextApiResponse<CommentData>
-){
-    const slug = req.query.slug as string
+export default async function handler (req: NextApiRequest){
+
+    const { searchParams } = new URL(req.url??'')
+    const slug = searchParams.get('slug') as string
 
     const metadata = {
         title: 'Hello World',
@@ -16,6 +14,18 @@ export default function handler (
     const link = 'https://github.com'
     const content = 'This is the content of the comment'
     const DataArray = [{ link: link, metadata: metadata, content: content }, { link: link, metadata: metadata, content: content }]
+    const data = {
+        code: 200,
+        data: DataArray
+    }
 
-    res.status(200).json({ code: 200, data: DataArray })
+    return new Response(
+        JSON.stringify(data),
+        {
+            status: 200,
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        }
+    )
 }
