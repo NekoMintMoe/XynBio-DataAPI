@@ -20,7 +20,7 @@ export default async function handler (req: NextApiRequest){
         likes: 0,
         shares: 0
     }
-    const DataArray = { code: 200, data: { link: link, metadata: metadata, content: content, activity: activity } }
+    const DataArray = { link: link, metadata: metadata, content: content, activity: activity }
     const data = {
         code: 200,
         data: DataArray
