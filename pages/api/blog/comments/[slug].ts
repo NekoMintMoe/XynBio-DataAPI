@@ -1,7 +1,7 @@
 import { jsonResponse } from '@/lib/utils'
-import type { NextApiRequest } from 'next'
+import { NextRequest } from 'next/server'
 
-export default async function handler (req: NextApiRequest){
+export default async function handler (req: NextRequest){
 
     const { searchParams } = new URL(req.url??'')
     const slug = searchParams.get('slug') as string
