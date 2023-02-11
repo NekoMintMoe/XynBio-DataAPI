@@ -1,3 +1,4 @@
+import { jsonResponse } from '@/lib/utils'
 import type { NextApiRequest } from 'next'
   
 export default async function handler (req: NextApiRequest){
@@ -26,13 +27,5 @@ export default async function handler (req: NextApiRequest){
         data: DataArray
     }
 
-    return new Response(
-        JSON.stringify(data),
-        {
-            status: 200,
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        }
-    )
+    return jsonResponse(200, data)
 }

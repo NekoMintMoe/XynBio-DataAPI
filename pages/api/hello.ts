@@ -1,13 +1,5 @@
-import type { NextApiRequest } from 'next'
+import { jsonResponse } from '@/lib/utils'
 
-export default async function handler(req: NextApiRequest) {
-  return new Response(
-    JSON.stringify({ text: 'Hello World!' }),
-    {
-      status: 200,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }
-  )
+export default async function handler() {
+  return jsonResponse(200, { text: 'Hello World!' })
 }
