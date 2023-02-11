@@ -2,21 +2,38 @@
 import { SignJWT, jwtVerify } from 'jose'
 
 // SignJWT using jose kit
-export const signJWT = async (payload: any) => {
+export const signJWT = async (payload: any, expTime: string) => {
   const jwt = await new SignJWT(payload)
     .setProtectedHeader({ alg: 'HS256' })
     .setIssuedAt()
-    .setExpirationTime('2h')
+    .setExpirationTime(expTime)
     .sign(new TextEncoder().encode(process.env.JWT_SECRET))
   return jwt
 }
 
-// Verify JWT using jose kit
-export const verifyJWT = async (token: string) => {
+// Decode JWT using jose kit
+export const decodeJWT = async (token: string) => {
     try {
-        const deJWT = await jwtVerify(token, new TextEncoder().encode(process.env.JWT_SECRET))
-        return deJWT
+        const jwt = await jwtVerify(token, new TextEncoder().encode(process.env.JWT_SECRET))
+        return jwt
     } catch (error) {
         return false
     }
+}
+
+// Verify JWT using jose kit
+export const verifyJWT = async (token: string) => {
+    const jwt = await decodeJWT(token)
+    if (!jwt) {
+        return "invalid"
+    }
+    if (jwt.payload.issuer !== process.env.DATA_API_URL) {
+        return "invalid"
+    }
+    const jwtExp = jwt.payload.exp??0
+    const timeNow = Date.now() / 1000
+    if (timeNow > jwtExp) {
+        return "expired"
+    }
+    return "valid"
 }
