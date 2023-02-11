@@ -1,0 +1,3 @@
+[submodule "XynBio-Archive"]
+	path = XynBio-Archive
+	url = https://github.com/XynBio/XynBio-Archive.git
