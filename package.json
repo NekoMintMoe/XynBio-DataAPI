@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "lint": "next lint",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "#dev": "npx @cloudflare/next-on-pages && npx wrangler pages dev .vercel/output/static --local --port 8030 --live-reload true",
+    "#build": "npx @cloudflare/next-on-pages",
+    "#start": "npx wrangler pages dev .vercel/output/static --local --port 8030"
   },
   "dependencies": {
     "@next/font": "13.1.6",
@@ -18,5 +21,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "4.9.5"
+  },
+  "devDependencies": {
+    "vercel": "^28.15.4"
   }
 }

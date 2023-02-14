@@ -43,3 +43,6 @@ next-env.d.ts
 
 # MacOS ExFAT
 ._*
+
+# CloudFlare
+.dev.vars
