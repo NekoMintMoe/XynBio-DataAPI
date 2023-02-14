@@ -3,12 +3,16 @@ import { SignJWT, jwtVerify } from 'jose'
 
 // SignJWT using jose kit
 export const signJWT = async (payload: any, expTime: string) => {
-  const jwt = await new SignJWT(payload)
-    .setProtectedHeader({ alg: 'HS256' })
-    .setIssuedAt()
-    .setExpirationTime(expTime)
-    .sign(new TextEncoder().encode(process.env.JWT_SECRET))
-  return jwt
+    if (!process.env.JWT_SECRET) {
+        console.log("JWT_SECRET not set")
+        return 'JWT_SECRET not set'
+    }
+    const jwt = await new SignJWT(payload)
+        .setProtectedHeader({ alg: 'HS256' })
+        .setIssuedAt()
+        .setExpirationTime(expTime)
+        .sign(new TextEncoder().encode(process.env.JWT_SECRET))
+    return jwt
 }
 
 // Decode JWT using jose kit
@@ -17,6 +21,7 @@ export const decodeJWT = async (token: string) => {
         const jwt = await jwtVerify(token, new TextEncoder().encode(process.env.JWT_SECRET))
         return jwt
     } catch (error) {
+        if (!process.env.JWT_SECRET) console.log("JWT_SECRET not set")
         return false
     }
 }
@@ -36,4 +41,10 @@ export const verifyJWT = async (token: string) => {
         return "expired"
     }
     return "valid"
+}
+
+// JWT Data Structure
+export const genJWT = (audience: string, action: string, scope: string) => {
+    const data = { issuer: process.env.DATA_API_URL, audience: audience, action: action, scope: scope }
+    return data
 }
