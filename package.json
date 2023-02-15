@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 8030",
     "lint": "next lint",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 8030",
     "%dev": "npx @cloudflare/next-on-pages && npx wrangler pages dev .vercel/output/static --local --port 8030 --live-reload true",
     "%build": "npx @cloudflare/next-on-pages",
     "%start": "npx wrangler pages dev .vercel/output/static --local --port 8030"
