@@ -15,5 +15,5 @@ export default async function handler(req: NextRequest) {
 
     const data = genJWT("XynBio-Next", "Generate JWT", "api")
     const jwt = await signJWT(data, "1h");
-    return jsonResponse(200, { data: data, jwt: jwt });
+    return await jsonResponse(200, { data: data, jwt: jwt });
 }

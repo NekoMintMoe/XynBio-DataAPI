@@ -29,5 +29,5 @@ export default async function handler (req: NextRequest){
         data: DataArray
     }
 
-    return jsonResponse(200, data)
+    return await jsonResponse(200, data)
 }

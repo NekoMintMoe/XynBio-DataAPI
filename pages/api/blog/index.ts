@@ -19,5 +19,5 @@ export default async function handler() {
     data: DataArray
   }
 
-  return jsonResponse(200, data)
+  return await jsonResponse(200, data)
 }
