@@ -12,16 +12,25 @@
 ### Start this project
 
 ```
-npm install
-npm run dev
+yarn
+yarn dev
+```
+
+```
+yarn
+yarn %dev
 ```
 
 ### Production Level build
 
 ```
-npm ci
-npm run build
-npm run start
+yarn build
+yarn start
+```
+
+```
+yarn %build
+yarn %start
 ```
 
 ### Deploy to CloudFlare Pages
