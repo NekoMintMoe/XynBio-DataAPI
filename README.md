@@ -2,6 +2,7 @@
 
 - NodeJS 18
 - NextJS 13
+- Yarn Global
 - EdgeAPI
 - CloudFlare
 
