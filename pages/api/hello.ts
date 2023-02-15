@@ -1,7 +1,7 @@
 import { checkEnvInit } from '@/lib/init'
-import { jsonResponse } from '@/lib/utils'
+import { commonResponse, jsonResponse } from '@/lib/utils'
 
 export default async function handler() {
-  if (!checkEnvInit()) return jsonResponse(500, { code: "500", message: 'Internal Server Error' })
+  if (!checkEnvInit()) return await commonResponse(500)
   return jsonResponse(200, { text: 'Hello World!' })
 }

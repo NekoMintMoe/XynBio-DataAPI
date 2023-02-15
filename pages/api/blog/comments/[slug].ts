@@ -1,9 +1,9 @@
 import { checkEnvInit } from '@/lib/init'
-import { jsonResponse } from '@/lib/utils'
+import { commonResponse, jsonResponse } from '@/lib/utils'
 import { NextRequest } from 'next/server'
 
 export default async function handler (req: NextRequest){
-    if (!checkEnvInit()) return jsonResponse(500, { code: "500", message: 'Internal Server Error' })
+    if (!checkEnvInit()) return await commonResponse(500)
 
     const { searchParams } = new URL(req.url??'')
     const slug = searchParams.get('slug') as string
