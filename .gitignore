@@ -46,3 +46,6 @@ next-env.d.ts
 
 # CloudFlare
 .dev.vars
+
+# Firebase
+.firebase/
