@@ -1,4 +1,6 @@
-# DataAPI for XynBio-Next
+# !!!IMPORTANT!!! This repo has been replaced by XynBio/XynBio-Worker
+
+## DataAPI for XynBio-Next
 
 - NodeJS 18
 - NextJS 13
