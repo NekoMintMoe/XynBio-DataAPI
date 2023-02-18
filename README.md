@@ -1,4 +1,6 @@
-# !!!IMPORTANT!!! This repo has been replaced by XynBio/XynBio-Worker
+# !!!IMPORTANT!!!
+# This repo has been replaced by [XynBio/XynBio-Worker](https://github.com/XynBio/XynBio-Worker)
+# !!!IMPORTANT!!!
 
 ## DataAPI for XynBio-Next
 
